@@ -95,17 +95,17 @@ Foram utilizados dois arquivos de dicionário:
 
 ### 📄 users.txt
 
-user
-msfadmin
-admin
+user ␠␠
+msfadmin ␠␠
+admin ␠␠
 root
 
 ### 📄 pass.txt
 
-123456
-password
-qwerty
-msfadmin
+123456 ␠␠
+password ␠␠
+qwerty ␠␠
+msfadmin ␠␠
 
 
 ## 🔹 Ataque ao SMB
@@ -114,15 +114,15 @@ Foram utilizados dois arquivos de dicionário:
 
 ### 📄 smb_users.txt
 
-user
-msfadmin
+user ␠␠
+msfadmin ␠␠
 service
 
 ### 📄 senhas_spray.txt
 
-password
-123456
-Welcome123
+password ␠␠
+123456 ␠␠
+Welcome123 ␠␠
 msfadmin
 
 
