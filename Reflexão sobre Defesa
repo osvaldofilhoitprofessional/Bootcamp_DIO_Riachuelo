@@ -1,0 +1,24 @@
+REFLEXÕES SOBRE AS TÉCNICAS APRESENTADAS - KEYLOGGER E RANSOMWARE
+
+1. As ameaças diárias vão muito além dessas técnicas - vírus, trojans, RATs, etc.
+2. Definir bem o cenário único no qual se pretende proteger (ameaças internas e externas).
+3. Investir na capacitação contínua e constante da equipe de TI em geral.
+4. Não adianta ter o melhor endpoint do mercado (Gartner) e a solução mais cara de firewall.
+5. Definição bem documentada, robusta e transparente de uma PSI (Política de Segurança da Informação).
+6. Para setores específicos verificar as normas que norteiam o setor. Por exemplo, o setor financeiro 
+que protege as transações usando cartões devem está em compliance com o PCI DSS. Já o setor de saúde
+deve verificar e se adequar à HIPAA.
+7. Buscar sempre o equilíbrio entre qualidade de soluções e os custos envolvidos.
+8. Envolver toda a organização nessa jornada através de capacitação, treinamentos específicos,
+cases de outros players sempre visando a maior integração do time e mostrando que um ambiente mais
+seguro é dever de todos.
+9. Há a necessidade da alta gestão (boarding) abraçar as ideias e proporcionar meios de que toda a 
+organização se engaje com um objetivo central - disponibilizar e fomentar um ambiente corporativo o 
+mais seguro possível.
+10. Evitar engessar demais o trabalho dos colaboradores. Equilibrio entre segurança e liberdade de cada um
+exercer suas funções deve ser caçada sempre.
+
+*Por fim, pegando o gancho do item 3 há uma anedota que exemplifica bem o cenário em várias corporações.
+
+CTO: "E se a gente pagar por treinamentos para nossos colaboradores e eles foram embora?"
+CISO: "E se a gente não pagar por esses treinamentos e eles ficarem?"
